@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Product</title>
+  </head>
+  <body>
+    <style>
+      th {
+        border: 1px solid black;
+      }
+      td {
+        border: 1px solid black;
+      }
+    </style>
+
+    <div align="center">
+      <h2>Edit Data Product</h2>
+      <form action="#" th:action="@{/save}" th:object="${product}" method="post">
+        <table border="0" cellpadding="10">
+          <!-- <tr> -->
+          <!-- <td>Product Id :</td> -->
+          <input type="hidden" th:field="*{id}" readonly />
+          <!-- </tr> -->
+          <tr>
+            <td>Product Name :</td>
+            <td><input type="text" th:field="*{name}" required /></td>
+          </tr>
+          <tr>
+            <td>Brand:</td>
+            <td><input type="text" th:field="*{brand}" required /></td>
+          </tr>
+          <tr>
+            <td>Made In :</td>
+            <td><input type="text" th:field="*{madein}" required /></td>
+          </tr>
+          <tr>
+            <td>Price :</td>
+            <td><input type="text" th:field="*{price}" required /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">Save</button></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

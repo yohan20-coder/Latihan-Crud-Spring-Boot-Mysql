@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+  </head>
+  <body>
+    <style>
+      th {
+        border: 1px solid black;
+      }
+      td {
+        border: 1px solid black;
+      }
+    </style>
+
+    <div style="margin-left: 20px">
+      <h2>List Data Product</h2>
+      <a href="new">Create New Product</a><br /><br />
+      <table style="border: 1px solid black">
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Name Product</th>
+            <th>Brand</th>
+            <th>Made In</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="product: ${listProducts}">
+            <td th:text="${product.id}">Product ID</td>
+            <td th:text="${product.name}">Name Product</td>
+            <td th:text="${product.brand}">Brand</td>
+            <td th:text="${product.madein}">Made In</td>
+            <td th:text="${product.price}">Price</td>
+            <td>
+              <a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+              &nbsp; &nbsp;
+              <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
